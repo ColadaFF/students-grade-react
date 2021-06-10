@@ -7,6 +7,7 @@ export type Student = {
 
 export type StudentList = {
   items: Student[];
+  total: number;
 };
 
 type ListArgs = {
@@ -14,7 +15,8 @@ type ListArgs = {
   skip?: number;
 };
 function listStudents(args: ListArgs): Promise<StudentList> {
-  return fetch("http://localhost:8080/students", {
+  const url = `http://localhost:8080/students?limit=${args.limit}&skip=${args.skip}`;
+  return fetch(url, {
     method: "GET",
   }).then((response) => response.json());
 }
