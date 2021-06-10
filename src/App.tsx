@@ -1,8 +1,7 @@
-import React from "react";
-import StudentsList from "./students/components/list";
+import InternalRouter from "./router";
 
 function App() {
-  return <StudentsList />;
+  return <InternalRouter />;
 }
 
 export default App;
